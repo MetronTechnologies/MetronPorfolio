@@ -1,0 +1,65 @@
+.main{
+  padding-top: 3.5rem;
+  display: grid;
+  justify-content: center;
+  width: clamp(20rem, 15.7143rem + 19.0476vw, 30rem);
+  justify-self: center;
+  font-size: 1.2rem;
+  gap: 0.5rem;
+  position: relative;
+  left: calc(50% - clamp(10rem, 7.8571rem + 9.5238vw, 15rem));
+}
+
+.form {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  width: 20rem;
+  position: relative;
+  left: calc(50% - 10rem);
+  margin-bottom: 5rem;
+}
+
+.form input {
+  width: 20rem;
+  height: 3rem;
+  box-shadow: inset 6px 6px 15px rgb(130, 130, 130), inset -6px -6px 15px rgb(130, 130, 130);
+  border-radius: 1rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+}
+
+.form textarea {
+  width: 20rem;
+  height: 10rem;
+  box-shadow: inset 6px 6px 15px rgb(130, 130, 130), inset -6px -6px 15px rgb(130, 130, 130);
+  border-radius: 1rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  resize: none;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border-radius: 2rem;
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: grid;
+  justify-self: center;
+  place-content: center;
+  box-shadow: inset 2px 2px 15px rgb(100, 100, 100), inset -2px -2px 15px rgb(100, 100, 100);
+  cursor: pointer;
+}
+
+
+
+
+

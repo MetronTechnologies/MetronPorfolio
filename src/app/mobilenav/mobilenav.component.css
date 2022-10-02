@@ -1,0 +1,28 @@
+.mobilenav {
+  width: 100%;
+  padding: 0.5rem 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: fixed;
+  background-color: white;
+  z-index: 500;
+}
+
+.menu_cont {
+  display: grid;
+  justify-content: flex-end;
+  border-bottom: 1px solid;
+}
+
+.logo_cont {
+  border-bottom: 1px solid;
+}
+
+.logo, .menu {
+  height: 1.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 1;
+}
+
+
+

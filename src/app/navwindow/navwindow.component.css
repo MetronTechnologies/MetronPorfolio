@@ -1,0 +1,60 @@
+.burger_open {
+  background-color: black;
+  height: 93vh;
+  width: 100%;
+  border-radius: 1rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  transform:  translateY(0%);
+  transition: all ease-out 1s;
+  position: fixed;
+  top: 7vh;
+  z-index: 500;
+  color: black;
+  display: grid;
+  gap: 0.5rem;
+  font-weight: bold;
+  grid-template-columns: max-content max-content;
+  place-content: center;
+  row-gap: clamp(1rem, 0.1198rem + 3.9120vw, 2rem);
+  column-gap: clamp(0.5rem, -0.8203rem + 5.8680vw, 2rem);
+}
+
+.burger_close {
+  background-color: transparent;
+  height: 0;
+  width: 100%;
+  transform:  translateY(-100%);
+  transition: all ease-out 1s;
+  position: fixed;
+  z-index: 500;
+}
+
+.open {
+  display: grid;
+  place-content: center;
+  height: 10rem;
+  width: 10rem;
+  z-index: 100;
+  margin: 0 0.25rem 0.5rem;
+  background: linear-gradient(to right bottom, white 50%, darkgray);
+  top: 401.8;
+  border-radius: 2rem;
+  box-shadow: inset 6px 6px 15px rgb(100, 100, 100), inset -6px -6px 15px rgb(100, 100, 100);
+  justify-content: center ;
+}
+
+.close {
+  display: none;
+}
+
+.nav_image{
+  width: 3rem;
+  display: grid;
+  justify-self: center;
+}
+
+
+
+
+

@@ -1,0 +1,171 @@
+<ng-template #mobile>
+  <app-mobilenav (click)="burger()"></app-mobilenav>
+</ng-template>
+
+<ng-template #desktop>
+  <app-desktopnav [id]="a"></app-desktopnav>
+</ng-template>
+
+<div *ngIf="deviceWidth$ > 769; then desktop; else mobile">
+
+</div>
+
+<app-navwindow></app-navwindow>
+
+<ng-container *ngIf="(workState$ | async) as workState" [ngSwitch]="workState.workDataState ">
+
+  <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+
+    <div class="work1">
+      <div class="work1_1">
+        <sa-spinner-circular-split size="300" color="black"></sa-spinner-circular-split>
+      </div>
+    </div>
+
+
+  </ng-container>
+
+  <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+
+    <div class="work1">
+      <div class="work1_1">
+        <div class="work1_2" *ngFor="let item of workState.workState ">
+          <div class="work1_3">
+            <img (click)="work(item.name)" class="small_img" src={{item.smallImageUrl}} alt="">
+          </div>
+          <div class="work1_4">
+            {{item.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bigwork" #target>
+      <div id={{item.name}} [ngClass]="{'bigwork1': item.id%2 !== 0, 'bigwork2': item.id%2 === 0, 'smallwork': deviceWidth$<=769}" *ngFor="let item of workState.workState">
+
+        <ng-container *ngIf="item.id%2 !== 0 || deviceWidth$<=769">
+          <div [ngClass]="{'bigpics1' : deviceWidth$<=769, 'bigpics2' : deviceWidth$>769}">
+            <img class="bigpics" src={{item.bigImageUrl}} alt="">
+          </div>
+          <div [ngClass]="{'bigworkbody1' : deviceWidth$<=769, 'bigworkbody2' : deviceWidth$>769}">
+            <div class="techstack">
+              <div class="stack">
+                <div class="stacktitle">
+                  Tech Stack
+                </div>
+                <div class="stackblock">
+                  <div class="stacklist" *ngFor="let item of item.techStack">
+                    <ul>
+                      <li>
+                        <span>{{item}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="archi">
+                <div class="archititle">
+                  Architecture
+                </div>
+                <div class="archiblock">
+                  <ul>
+                    <li>
+                      <span>{{item.architecture}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="description" >
+              <div class="desctitle">
+                Description
+              </div>
+              <div class="describe" *ngFor="let item of item.description">
+                {{item}}
+              </div>
+              <div class="click">
+                <span>Click <a href={{item.liveSite}}>here</a> to checkout the live application</span>
+                <span>Click <a href={{item.gitRepo}}>here</a> to go to the git repository</span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="item.id%2 === 0 && deviceWidth$ >769">
+          <div id={{item.name}} [ngClass]="{'bigworkbody1' : deviceWidth$<=769, 'bigworkbody2' : deviceWidth$>769}">
+            <div class="techstack">
+              <div class="stack">
+                <div class="stacktitle">
+                  Tech Stack
+                </div>
+                <div class="stackblock">
+                  <div class="stacklist" *ngFor="let item of item.techStack">
+                    <ul>
+                      <li>
+                        <span>{{item}}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="archi">
+                <div class="archititle">
+                  Architecture
+                </div>
+                <div class="archiblock">
+                  <ul>
+                    <li>
+                      <span>{{item.architecture}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="description" >
+              <div class="desctitle">
+                Description
+              </div>
+              <div class="describe" *ngFor="let item of item.description">
+                {{item}}
+              </div>
+              <div class="click">
+                <span>Click <a href={{item.liveSite}}>here</a> to checkout the live application</span>
+                <span>Click <a href={{item.gitRepo}}>here</a> to go to the git repository</span>
+              </div>
+            </div>
+          </div>
+          <div [ngClass]="{'bigpics1' : deviceWidth$<=769, 'bigpics2_2' : deviceWidth$>769}">
+            <img class="bigpics" src={{item.bigImageUrl}} alt="">
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+
+  </ng-container>
+
+  <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+
+    <div class="work1">
+      <div class="work1_1">
+        <sa-spinner-circular-split size="300" color="black"></sa-spinner-circular-split>
+      </div>
+    </div>
+
+  </ng-container>
+
+
+</ng-container>
+
+
+
+
+<app-footer></app-footer>
+
+
+
+
+
+
+
+

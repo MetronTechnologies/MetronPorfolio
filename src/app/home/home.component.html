@@ -1,0 +1,187 @@
+  <div class="parent">
+
+  <div class="curtain section anime">
+    <p>WELCOME</p>
+    <p>TO</p>
+    <p>METRONTECHNOLOGIES</p>
+    <img (click)="scrollDown()" src="https://ik.imagekit.io/entropy/amazon-image/newarrowdown_seeAD4oBN.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1664608326329" alt="">
+  </div>
+
+
+  <div id="invert" class="section invert" [@foobar]="state">
+    <div class="invertA">
+      <div class="express">
+        <p>EXPRESS YOUR IDEAS THROUGH DESIGN AND CODE</p>
+      </div>
+      <div class="bring">
+        <ul>
+          <li><span>Bring your business ideas into digital life using code</span></li>
+          <li><span>Design your thoughts</span></li>
+          <li><span>Use simple and minimalistic design to say something huge and significant</span></li>
+        </ul>
+      </div>
+      <div class="skills">> See my skills to know the tools I use</div>
+      <div class="portfolio">> Go through my portfolio to checkout what I can do</div>
+      <div class="scroll">> Scroll down for more</div>
+    </div>
+    <div class="invertB">
+      <img class="invertB_img" src="https://ik.imagekit.io/entropy/amazon-image/Devices_BXbsDyz72.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1662621680850" alt="images">
+    </div>
+  </div>
+
+
+  <div id="one" class="section one">
+    <div [@cardSlider]="slider1" id="one1" class="one_glass one1">
+      <p>Hello, I am</p>
+      <p>JEREMIAH</p>
+    </div>
+    <div [@cardSlider]="slider2" id="one2" class="one_glass one2">
+      <p>FULL STACK</p>
+      <p>SOFTWARE</p>
+      <p>ENGINEER</p>
+    </div>
+    <div [@cardSlider]="slider3" id="one3" class="one_glass one3">
+      <p>USER INTERFACE</p>
+      <p>&</p>
+      <p>USER EXPERIENCE</p>
+      <p>DESIGNER</p>
+      <br />
+      <div>FREELANCER</div>
+    </div>
+  </div>
+
+
+
+  <div class="section two">
+    <div class="simple">
+      <div class="simple2">
+        <div class="simpletalk1">
+          Simple and minimal
+        </div>
+        <div class="simpletalk2">
+          <p>Make your digital products super</p>
+          <p>easy to understand and use</p>
+        </div>
+      </div>
+      <div class="simple1">
+        <img class="two_image" src="https://ik.imagekit.io/entropy/amazon-image/Devices_BXbsDyz72.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1662621680850" alt="">
+      </div>
+    </div>
+    <div class="latest">
+      <div class="latest1">
+        <img class="two_image" src="https://ik.imagekit.io/entropy/amazon-image/trends_5FN8zy0wj.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1664605247999" alt="">
+      </div>
+      <div class="latest2">
+        <div class="latesttalk1">
+          Latest trends
+        </div>
+        <div class="latesttalk2">
+          <p>Create and/or transform your</p>
+          <p>products using latest design trends</p>
+          <p>and coding techniques</p>
+        </div>
+      </div>
+    </div>
+    <div class="customers">
+      <div class="customers2">
+        <div class="customerstalk1">
+          Generate more customers
+        </div>
+        <div class="customerstalk2">
+          <p>Keep your existing customers while </p>
+          <p>directing more traffic to your product</p>
+        </div>
+      </div>
+      <div class="customers1">
+        <div class="cover1">
+          <img class="image" src="https://ik.imagekit.io/entropy/amazon-image/customers_IiwZRd1yl.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1664605247563" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="three">
+    <div class="faq_cover">
+      <div class="faq_cover1">
+        <p>Frequently Asked Questions</p>
+      </div>
+      <div class="faq_cover2">
+        <p>Q  -  Can you provide a service that can handle a lot of traffic?</p>
+        <p>A  -  Yes, I use Java to handle any application that will involve heavy data traffic</p>
+        <p>Q  -  Would I be able to use my product on a msart phone?</p>
+        <p>A  -  Yes, you would surely be able to do so. I create responsive apps that works seemlessly across all devices. You can check out the metrontechnologies project under the work section</p>
+        <p>Q  -  Is it possible to have a project that will automate some actions?</p>
+        <p>A  -  I guess you have a lot of jobs that you do manually. With your request, I can have the product do most or all of those processes for you. These processes can range from generating a report, generating an invoice to even sending mails.</p>
+        <p>Q  -  I have an existing application, can I make it do more things?</p>
+        <p>A  -  I guess you want to scale up your existing system. Scaling up an existing system is possible. All it would take me is to study the present system, gather the new features you would want to include, and transform the old system into a new one that would include those new features</p>
+        <p>Q  -  I have lots of ideas for my business product, can I see sketches of all of them so I can pick one?</p>
+        <p>A  -  I believe you want to see the prototype of your ideas. This is possible as I have a competent tool to implement all your ideas</p>
+      </div>
+    </div>
+    <div class="faq_glass">
+
+    </div>
+  </div>
+
+
+  <div class="see">See what some people have said about my work</div>
+  <div class="container">
+    <div (click)="scrollLeft()" class="arrow_left">
+      <img class="leftimg" src="https://ik.imagekit.io/entropy/amazon-image/724954_zP6cp_CGB.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664653957066" alt="">
+    </div>
+    <div #widgetContent class="slider">
+      <div class="content" *ngFor="let item of (commentState$ | async).commentState; index as i">
+        <div class="fade" [ngClass]="{'try': selectedIndex === i, 'no_try': selectedIndex !== i}">
+          <div class="comment">
+            {{item.comment}}
+          </div>
+          <div [ngClass]="{'comment_name1': deviceWidth$>769, 'comment_name2': deviceWidth$<=769}" class="comment_name">
+            <span>--{{item.name}}--</span>
+            <span>{{item.occupation}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div (click)="scrollRight()" class="arrow_right">
+      <img src="https://ik.imagekit.io/entropy/amazon-image/724954_zP6cp_CGB.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664653957066" alt="">
+    </div>
+  </div>
+
+  <ng-template #desktop>
+    <div class="four">
+      <div class="but_about" *ngFor="let item of places$" (click)="navigator(item.name)">
+        <div class="_one">
+          <div class="_two">{{item.name}}</div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #mobile>
+    <div class="four1">
+      <div class="buttons" *ngFor="let item of places$" (click)="navigator(item.name)">
+        <div class="img_cont">
+          <img class="mobile_img" src={{item.location}} alt="">
+        </div>
+        <div class="img_name">
+          <p>{{item.name}}</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <div *ngIf="deviceWidth$ > 769; then desktop; else mobile">
+
+  </div>
+
+  <div id="target"></div>
+
+
+
+  <app-footer></app-footer>
+
+
+</div>
+
+

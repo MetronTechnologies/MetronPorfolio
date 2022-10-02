@@ -1,0 +1,229 @@
+<div class="about">
+
+  <ng-template #mobile>
+    <app-mobilenav (click)="burger()"></app-mobilenav>
+  </ng-template>
+
+  <ng-template #desktop>
+    <app-desktopnav [id]="a"></app-desktopnav>
+  </ng-template>
+
+  <div *ngIf="deviceWidth$ > 769; then desktop; else mobile">
+
+  </div>
+
+  <app-navwindow></app-navwindow>
+
+  <div class="main">
+
+    <div class="about1">
+      <div class="about_board" >
+        <p>Hi,</p>
+        <p>I'm Jeremiah.</p>
+        <p>Here are some things you should know about me.</p>
+        <ul>
+          <li>
+            <span>I studied computer engineering for five years in the university
+            </span>
+          </li>
+          <li>
+            <span>I believe codes and software can be used to solve some problems in life
+            </span>
+          </li>
+          <li>
+            <span>I am a full stack software engineer who can work in more than one stack uptill enterprise level
+            </span>
+          </li>
+          <li>
+            <span>I am a user interface designer
+            </span>
+          </li>
+          <li>
+            <span>I am a user experience designer
+            </span>
+          </li>
+          <li>
+            <span>I have a knack or let me say a fasination for science and technology
+            </span>
+          </li>
+          <li>
+            <span>I made a car that relies only on computer vision and deep learning using python programming language >>>>
+              see
+              proof
+            </span>
+          </li>
+          <li>
+            <span>I have a bit of an obsession for rocket science, and artificial intelligence
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="click">Click on the categories below to know more about me</p>
+
+    <div class="about2">
+      <div id="container1" class="container1 slide">
+        <div id="onecontent" class="content content1">
+          <p class="title">
+            The job of a user interface / user experience designer is divided into two
+          </p>
+          <div [ngClass]="{'content1_vertical': deviceWidth$<=769, 'content1_horizontal': deviceWidth$>769}">
+            <div [ngClass]="{'ui_1': deviceWidth$<=769, 'ui_2': deviceWidth$>769}">
+              <span class="uiTitle">User Interface Designer</span>
+              <span class="subtitle">
+                As a user interface designer, I have a human-first approach to product design
+              </span>
+              <ul class="body_2">
+                <li>
+                  <span>I apply my skills to digital products only</span>
+                </li>
+                <li>
+                  <span>I focus on visual touchpoints that allow user's easy use of a product</span>
+                </li>
+                <li>
+                  <span>I use a combination of typography, color palletes, buttons, animations and imagery</span>
+                </li>
+              </ul>
+            </div>
+            <div [ngClass]="{'ux_1': deviceWidth$<=769, 'ux_2': deviceWidth$>769}">
+              <span class="uiTitle">User Experience Designer</span>
+              <span class="subtitle">
+                As a user experience designer, I have a human-first approach to designing the aesthetic experience of a product
+              </span>
+              <ul class="body_2">
+                <li>
+                  <span>I apply my skills to digital and physical products</span>
+                </li>
+                <li>
+                  <span>I focus on the full experience from a user's first contact to the last</span>
+                </li>
+                <li>
+                  <span>I create structural design solutions for pain points that users encounter with using the product</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="curtains1" [ngStyle]="{'top': first$+'px' }" class="curtains1">
+          <div [ngClass]="{'curtain_1': unveiling1, 'open_curtain1': !unveiling1}" (click)="unveiler1()">
+            <img src="https://ik.imagekit.io/entropy/amazon-image/ui1_ebIqiEkiLu.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1664609547695" alt="">
+          </div>
+          <div [ngClass]="{'curtain_2': unveiling1, 'open_curtain2': !unveiling1}" (click)="unveiler1()">
+            <img src="https://ik.imagekit.io/entropy/amazon-image/ui2_59kpbJsUGq.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1664609580557" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="about3">
+      <div id="container3" class="container3 slide">
+        <div class="content2 content">
+          <span class="content2_title">As a frontend developer, I</span>
+          <ul class="content2_body">
+            <li>
+              <span>specialize in web design</span>
+            </li>
+            <li>
+              <span>determine the structure and design of web pages, thereby striking a balance between functional and aesthetic design</span>
+            </li>
+            <li>
+              <span>must ensure that the web design is optimized for all devices and maximum efficiency</span>
+            </li>
+            <li>
+              <span>build reusable code for future use</span>
+            </li>
+            <li>
+              <span>must maintain brand consistency throughout the design</span>
+            </li>
+          </ul>
+        </div>
+        <div id="curtains1" [ngStyle]="{'top': newSizes[1]+'px' }" class="curtains2">
+          <div [ngClass]="{'curtain_3': unveiling2, 'open_curtain3': !unveiling2}" (click)="unveiler2()">
+            <img src="https://ik.imagekit.io/entropy/amazon-image/front1_4ZdDp9Hg7F.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1664609580564" alt="">
+          </div>
+          <div [ngClass]="{'curtain_4': unveiling2, 'open_curtain4': !unveiling2}" (click)="unveiler2()">
+            <img src="https://ik.imagekit.io/entropy/amazon-image/front2_tlpq43z2F.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1664609580271" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="about4">
+      <div id="container4" class="container4 slide">
+        <div class="content4 content">
+          <span class="content4_title">As a backend developer, I build and maintain the mechanisms that process data and perform actions on websites or software </span>
+          <span class="content4_subtitle">I also have other roles like</span>
+          <ul class="content4_body">
+            <li>
+              <span>focusing more on coding and debugging</span>
+            </li>
+            <li>
+              <span>collaborating with frontend developers</span>
+            </li>
+            <li>
+              <span>defining and communicating technical and design requirements</span>
+            </li>
+            <li>
+              <span>building high-quality reusable code that can be used in the future</span>
+            </li>
+            <li>
+              <span>developing functional and sustainable applications with clean codes </span>
+            </li>
+            <li>
+              <span>managing cuting-edge technologies to improve applications</span>
+            </li>
+            <li>
+              <span>storing and manipulating data in a database</span>
+            </li>
+            <li>
+              <span>performing tests to optimize application performance</span>
+            </li>
+          </ul>
+        </div>
+        <div id="curtains1" [ngStyle]="{'top': third$+'px' }" class="curtains1">
+          <div [ngClass]="{'curtain_1': unveiling3, 'open_curtain1': !unveiling3}" (click)="unveiler3()">
+            <img src="https://ik.imagekit.io/entropy/amazon-image/back1_kcjfCBdK7f.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1664609580782" alt="">
+          </div>
+          <div [ngClass]="{'curtain_2': unveiling3, 'open_curtain2': !unveiling3}" (click)="unveiler3()">
+            <img src="https://ik.imagekit.io/entropy/amazon-image/back2_qLQb79dYj.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1664609580563" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about5">
+      <div class="about5_content">
+        <span class="about5_one">The summary of those three sections are as follows</span>
+        <span class="about5one_1">(1) I design experiences</span>
+        <span class="about5one_1">(2) I design user friendly, simple to use products</span>
+        <span class="about5one_1">(3) I have the ability to take your business ideas and turn them to digital products</span>
+        <span class="about5one_1">(4) Solving business problems is one of my core jobs</span>
+        <span class="about5one_1">(5) With my design and coding skills, I provide steady clients and workflow to your business</span>
+        <br>
+        <span class="about5_one">From my years of working as a designer and developer, I can say that</span>
+        <ul class="about5one_1">
+          <li>
+            <span>Clean and high-quality code means more efficiency</span>
+          </li>
+          <li>
+            <span>Good and simple design means more business</span>
+          </li>
+          <li>
+            <span>Clean codes, simple and good designs means more money</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <app-footer></app-footer>
+
+
+</div>
+

@@ -1,0 +1,61 @@
+.nav {
+  display: grid;
+  padding: 0.5rem 1rem 0.5rem 2.5%;
+  border-bottom: 1px solid;
+  grid-template-columns: 1fr clamp(30rem, 12.1578rem + 37.1230vw, 40rem);
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  z-index: 500;
+}
+
+img {
+  height: 2rem;
+}
+
+.nava {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  justify-self: right;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.but_about {
+  display: grid;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+}
+
+._one {
+  padding: 0.4rem;
+  border: 1px solid rgb(177, 177, 177);
+  border-radius: 1rem;
+  box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.2), inset 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+._two {
+  padding: 0.1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  color: white;
+  background-color: black;
+  border-radius: 1rem;
+  letter-spacing: 0.3rem;
+  font-weight: bolder;
+  font-size: clamp(0.65rem, 0.2039rem + 0.9281vw, 0.9rem);
+  box-shadow: 2px 2px 10px rgb(100, 100, 100), -2px -2px 10px rgb(100, 100, 100);
+}
+
+._two:hover {
+  color: black;
+  background-color: white;
+  box-shadow: -5px -5px 5px rgb(95, 95, 95), 5px 5px 5px rgb(95, 95, 95);
+}
+
+
+

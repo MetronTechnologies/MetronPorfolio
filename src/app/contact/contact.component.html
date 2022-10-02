@@ -1,0 +1,64 @@
+<div>
+
+  <ng-template #mobile>
+    <app-mobilenav (click)="burger()"></app-mobilenav>
+  </ng-template>
+
+  <ng-template #desktop>
+    <app-desktopnav [id]="a"></app-desktopnav>
+  </ng-template>
+
+  <div *ngIf="deviceWidth$ > 769; then desktop; else mobile">
+  </div>
+
+  <app-navwindow></app-navwindow>
+
+  <div class="main">
+    <span>Let's work together on your next digital project</span>
+    <span>All you have to do is imagine it, then leave the coding and designing to me</span>
+    <span>Leave a mail for me at jeremiahekanem2@gmail.com or put a call through on 08147206928</span>
+    <span>You could drop a private message by filling the form below</span>
+    <form [formGroup]="contactForm">
+      <div class="form">
+        <span>
+          <input formControlName="name" type="text" placeholder="Your Name">
+        </span>
+        <span>
+          <input formControlName="email" type="text" placeholder="Your Email Address">
+        </span>
+        <span>
+          <input formControlName="number" type="number" placeholder="Your Phone Number">
+        </span>
+        <span>
+          <textarea formControlName="message" name="message"  placeholder="Your Message"></textarea>
+        </span>
+        <span>
+          <ng-container *ngIf="(contactState$ | async) as theContact" [ngSwitch]="theContact.contactDataState">
+            <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+              <button>
+                <sa-spinner-circular-split [thickness]=300 size="50" color="white"></sa-spinner-circular-split>
+              </button>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+              <button (click)="submit()" type="submit">
+                SEND
+              </button>
+            </ng-container>
+
+          </ng-container>
+
+          <ng-container *ngIf="!(contactState$ | async) as theContact" >
+            <button (click)="submit()" type="submit">
+              SEND
+            </button>
+          </ng-container>
+
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

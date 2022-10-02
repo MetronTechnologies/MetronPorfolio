@@ -1,0 +1,19 @@
+<div class="nav">
+  <div class="logo">
+    <a href="">
+      <img  src="https://ik.imagekit.io/entropy/amazon-image/metronlogo_9TlW4BQtb.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664578450832" alt="">
+    </a>
+  </div>
+  <div class="nava">
+    <div class="but_about" *ngFor="let item of places$" (click)="navigator(item.name)">
+      <div class="_one">
+        <div [ngClass]="{'live1': item.name===id, '_two': item.name!==id}" >{{item.name}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

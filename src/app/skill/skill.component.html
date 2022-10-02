@@ -1,0 +1,149 @@
+<ng-template #mobile>
+  <app-mobilenav (click)="burger()"></app-mobilenav>
+</ng-template>
+
+<ng-template #desktop>
+  <app-desktopnav [id]="a"></app-desktopnav>
+</ng-template>
+
+<div *ngIf="deviceWidth$ > 769; then desktop; else mobile">
+
+</div>
+
+<app-navwindow></app-navwindow>
+
+<ng-container *ngIf="(skillState$ | async) as skillState" [ngSwitch]="skillState.skillDataState1">
+
+  <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+    <div class="container">
+      <sa-spinner-circular-split [thickness]="300" size="50" color="black"></sa-spinner-circular-split>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+    <div class="container">
+      <div class="arrow_left" (click)="scrollLeft()" *ngIf="deviceWidth$>769">
+        <img class="leftimg" src="https://ik.imagekit.io/entropy/amazon-image/724954_zP6cp_CGB.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664653957066" alt="">
+      </div>
+      <div #widgetContent class="slider">
+        <div class="content" *ngFor="let item of skillState.skillState ">
+          <div class="status_1_1">
+            <img (click)="findByName(item.name)" class="slider_image" src={{item.smallImageUrl}} alt="">
+          </div>
+        </div>
+      </div>
+      <div class="arrow_right" (click)="scrollRight()" *ngIf="deviceWidth$>769">
+        <img src="https://ik.imagekit.io/entropy/amazon-image/724954_zP6cp_CGB.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664653957066" alt="">
+      </div>
+    </div>
+
+    Click on any of the tabs, then any of the skills
+
+    <div class="container2">
+      <div class="categories">
+        <div class="cat" *ngFor="let item of categories$">
+          <div [ngClass]="{'no_cat': item.name==finding, 'cat_name': item.name !== finding}" (click)="findByCategory(item.name)">
+            {{item.name}}
+          </div>
+        </div>
+      </div>
+
+      <ng-container *ngIf="(skillCategoryState$ | async) as skillCategoryState" [ngSwitch]="skillCategoryState.skillDataState2">
+
+        <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+          <div class="bigpics">
+            <div class="bigRows">
+              <sa-spinner-circular-split [thickness]="200" size="300" color="white"></sa-spinner-circular-split>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+          <div class="bigpics">
+            <div class="bigRows">
+              <div class="big" *ngFor="let item of skillCategoryState.skillState">
+                <div class="skills">
+                  <div class="img_wrapper" (click)="findByName(item.name)">
+                    <img (click)="findByName(item.name)" class="skill_image" src={{item.smallImageUrl}} alt="">
+                  </div>
+                </div>
+                <div class="text">
+                  {{item.name}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+          ERROR
+        </ng-container>
+
+      </ng-container>
+    </div>
+
+    <ng-container *ngIf="(skillNameState$ | async) as skillNameState" [ngSwitch]="skillNameState.skillDataState3">
+
+      <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+        <div class="container3">
+          <div class="c3">
+            <div class="c3body">
+              <sa-spinner-circular-split size="300" color="black"></sa-spinner-circular-split>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+        <div class="container3" #target>
+          <div class="c3">
+            <div class="c3title">
+              About {{skillNameState.skillState.name}}
+            </div>
+            <div class="c3body">
+              <div class="c3image">
+                <div class="c3wrapper">
+                  <div class="c3imgbox">
+                    <img class="skill_image" src={{skillNameState.skillState.bigImageUrl}} alt="">
+                  </div>
+                </div>
+                <div class="c3text">
+                  {{skillNameState.skillState.category}}
+                </div>
+              </div>
+              <div class="c3desc">
+                {{skillNameState.skillState.description[0]}}
+                <ul *ngFor="let item of desc">
+                  <li>
+                    <span class="desc">{{item}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <div #target></div>
+
+      <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+        <div class="c3body">
+          ERROR
+        </div>
+      </ng-container>
+
+    </ng-container>
+
+  </ng-container>
+
+
+  <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+    ERROR
+  </ng-container>
+
+</ng-container>
+
+
+
+
+<app-footer></app-footer>

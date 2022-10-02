@@ -1,0 +1,24 @@
+<ng-template #open>
+  <div class="menu_cont">
+    <img class="menu" src="https://ik.imagekit.io/entropy/amazon-image/menu2_OVWpAQSHO.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664577520388" alt="">
+  </div>
+</ng-template>
+
+<ng-template #close>
+  <div class="menu_cont" >
+    <img class="menu" src="https://ik.imagekit.io/entropy/amazon-image/close1_6ndTZ6Tnb.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664605417912" alt="">
+  </div>
+</ng-template>
+
+
+
+
+<div class="mobilenav">
+  <div class="logo_cont">
+    <img (click)="navigate()" class="logo" src="https://ik.imagekit.io/entropy/amazon-image/metronlogo_9TlW4BQtb.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664578450832" alt="">
+  </div>
+  <div *ngIf="burgerstate; then close; else open">
+
+  </div>
+
+</div>

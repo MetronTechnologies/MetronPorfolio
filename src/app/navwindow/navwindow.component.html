@@ -1,0 +1,10 @@
+<div [ngClass]="{'burger_open': menu && deviceWidth$<=769, 'burger_close': !menu && deviceWidth$<=769}">
+
+  <div *ngFor="let item of newPlaces$">
+    <div [ngClass]="{'open': menu && deviceWidth$<=769 && item.name!==a, 'close': (!menu && deviceWidth$<=769) || deviceWidth$>769}" (click)="navigate(item.name)">
+      <img class="nav_image" src={{item.location}} alt="">
+      {{item.name}}
+    </div>
+  </div>
+
+</div>

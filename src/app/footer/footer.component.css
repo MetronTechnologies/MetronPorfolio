@@ -1,0 +1,11 @@
+.footer {
+  display: grid;
+  justify-content: right;
+  align-content: center;
+  margin-bottom: 1vh;
+  padding-right: 1rem;
+  font-size: 0.6rem;
+}
+
+
+
