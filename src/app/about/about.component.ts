@@ -17,11 +17,14 @@ export class AboutComponent implements OnInit {
   constructor(private router: Router, private pService: PortfolioService) {
     this.a = this.router.url.split('/')[1].toUpperCase();
     this.pService.updateMenu(this.menu);
+    this.size2.subscribe(
+      data => this.newSizes = data
+    )
   }
 
-  theSizes = new BehaviorSubject([710, 1286, 1862]);
+  theSizes = new BehaviorSubject([]);
   size2 = this.theSizes.asObservable();
-  newSizes;
+  newSizes = [];
 
 
   a!: any;
@@ -32,13 +35,18 @@ export class AboutComponent implements OnInit {
 
   slider1 = "slideDown";
 
-  first$: any;
-  second$: any;
-  third$: any;
-
   unveiling1: any = true;
   unveiling2: any = true;
   unveiling3: any = true;
+
+  myInterval(){
+    let theInterval = setTimeout(
+      () => {
+        this.theSizes.next([document.getElementById('container1')?.offsetTop, document.getElementById('container3')?.offsetTop, document.getElementById('container4')?.offsetTop]);
+      }, 1000
+    )
+    return ()=>clearTimeout(theInterval)
+  }
 
 
   ngOnInit(): void {
@@ -47,20 +55,12 @@ export class AboutComponent implements OnInit {
       data => this.menu = data
     )
 
-    this.theSizes.next([document.getElementById('container1')?.offsetTop, document.getElementById('container3')?.offsetTop, document.getElementById('container4')?.offsetTop]);
+    this.myInterval();
+
 
     this.size2.subscribe(
       data => this.newSizes = data
     )
-
-    console.log(this.newSizes);
-
-
-
-
-    this.first$ = this.newSizes[0];
-    this.second$ = this.newSizes[1];
-    this.third$ = this.newSizes[2];
   }
 
   burger() {
@@ -86,10 +86,6 @@ export class AboutComponent implements OnInit {
     this.deviceWidth$ = window.innerWidth;
 
     this.theSizes.next([document.getElementById('container1')?.offsetTop, document.getElementById('container3')?.offsetTop, document.getElementById('container4')?.offsetTop]);
-
-    this.first$ = this.newSizes[0];
-    this.second$ = this.newSizes[1];
-    this.third$ = this.newSizes[2];
   }
 
   @HostListener('window:load', ['$event'])
@@ -97,15 +93,6 @@ export class AboutComponent implements OnInit {
     this.deviceWidth$ = window.innerWidth;
 
     this.theSizes.next([document.getElementById('container1')?.offsetTop, document.getElementById('container3')?.offsetTop, document.getElementById('container4')?.offsetTop]);
-
-    this.first$ = this.newSizes[0];
-    this.second$ = this.newSizes[1];
-    this.third$ = this.newSizes[2];
-
-    let z = [];
-    z.push(this.first$);
-    z.push(this.second$);
-    z.push(this.third$);
   }
 
 

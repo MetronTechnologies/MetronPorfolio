@@ -290,6 +290,7 @@ li span {
   width: max-content;
   justify-self: flex-start;
   padding-left: 2rem;
+  align-items: center;
 }
 
 .image {
@@ -413,6 +414,15 @@ li span {
   width: 100%;
   display: grid;
   justify-content: center;
+}
+
+.img_cont1{
+  border: 1px solid lightgrey;
+  padding: 0.2rem;
+  border-radius: 27%;
+  display: grid;
+  place-content: center;
+  place-items: center;
 }
 
 .img_cont{

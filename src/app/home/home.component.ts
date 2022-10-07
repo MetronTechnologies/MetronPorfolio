@@ -128,7 +128,6 @@ export class HomeComponent implements OnInit {
       map(
         response => {
           this.dataSubject.next(response);
-          console.log(response)
           return {
             commentDataState: DataState.LOADED_STATE,
             commentState: response

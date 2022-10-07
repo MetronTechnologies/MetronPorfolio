@@ -66,7 +66,6 @@ export class SkillComponent implements OnInit {
     this.skillState$ = this.pService.skill$.pipe(
       map(
         (response) => {
-          console.log(response);
           return {
             skillDataState1: DataState.LOADED_STATE,
             skillDataState2: null,

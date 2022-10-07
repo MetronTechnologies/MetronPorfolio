@@ -20,7 +20,6 @@ export class PortfolioService {
 
 
   private handleError(error: HttpErrorResponse): Observable<never> {
-    console.log(error);
     return throwError(`An error occured. Error code: ${error.status}`);
   }
 
@@ -28,7 +27,6 @@ export class PortfolioService {
     this.http
       .get(`${this.baseURL1}/getwork`)
       .pipe(
-        tap(console.log),
         catchError(this.handleError)
       )
   );
@@ -37,7 +35,6 @@ export class PortfolioService {
     this.http
       .get(`${this.baseURL2}/getAllSkills`)
       .pipe(
-        tap(console.log),
         catchError(this.handleError)
       )
   );
@@ -46,7 +43,6 @@ export class PortfolioService {
     this.http
       .get(`${this.baseURL2}/getSkillByName/${name}`)
       .pipe(
-        tap(console.log),
         catchError(this.handleError)
       )
   );
@@ -55,7 +51,6 @@ export class PortfolioService {
     this.http
       .get(category==="All" ? `${this.baseURL2}/getAllSkills` : `${this.baseURL2}/getSkillsByCategory/${category}`)
       .pipe(
-        tap(console.log),
         catchError(this.handleError)
       )
   );
@@ -64,7 +59,6 @@ export class PortfolioService {
     this.http
       .get(`${this.baseURL3}/getComment`)
       .pipe(
-        tap(console.log),
         catchError(this.handleError)
       )
   );
@@ -73,7 +67,6 @@ export class PortfolioService {
     this.http
       .post(`${this.baseURL4}/saveContact`, contact)
       .pipe(
-        tap(console.log),
         catchError(this.handleError)
       )
   );

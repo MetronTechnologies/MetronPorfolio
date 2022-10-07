@@ -54,7 +54,6 @@ export class WorkComponent implements OnInit {
     this.workState$ = this.pService.work$.pipe(
       map((response) => {
         this.dataSubject.next(response);
-        console.log(response, " is response");
         return {
           workDataState: DataState.LOADED_STATE,
           workState: response

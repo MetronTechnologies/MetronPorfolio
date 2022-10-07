@@ -161,8 +161,10 @@
   <ng-template #mobile>
     <div class="four1">
       <div class="buttons" *ngFor="let item of places$" (click)="navigator(item.name)">
-        <div class="img_cont">
-          <img class="mobile_img" src={{item.location}} alt="">
+        <div class="img_cont1">
+          <div class="img_cont">
+            <img class="mobile_img" src={{item.location}} alt="">
+          </div>
         </div>
         <div class="img_name">
           <p>{{item.name}}</p>
