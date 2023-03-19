@@ -16,7 +16,6 @@ export class AboutComponent implements OnInit {
 
   constructor(private router: Router, private pService: PortfolioService) {
     this.a = this.router.url.split('/')[1].toUpperCase();
-    this.pService.updateMenu(this.menu);
     this.size2.subscribe(
       data => this.newSizes = data
     )
@@ -56,7 +55,6 @@ export class AboutComponent implements OnInit {
     )
 
     this.myInterval();
-
 
     this.size2.subscribe(
       data => this.newSizes = data

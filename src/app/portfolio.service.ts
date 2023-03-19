@@ -138,11 +138,14 @@ export class PortfolioService {
 
   private current_menu = new BehaviorSubject(false);
 
+  newMenu = this.current_menu.asObservable();
+
   updateMenu(decision: boolean) {
+    console.log(`${decision} from pService`);
     this.current_menu.next(decision);
   }
 
-  newMenu = this.current_menu.asObservable();
+  
 
 
 

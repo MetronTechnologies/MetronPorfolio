@@ -13,10 +13,11 @@ export class MobilenavComponent implements OnInit {
 
   constructor(private router: Router, private pService: PortfolioService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.pService.newMenu.subscribe(
       data => this.burgerstate = data
     )
+    console.log(`${this.burgerstate} is the burger state from navbar`)
   }
 
   navigate() {

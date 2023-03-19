@@ -1,7 +1,11 @@
 export const environment = {
   production: true,
-  baseUrl1: "https://confused-jacket-seal.cyclic.app/mt/work",
-  baseURL2: "https://metronportfolio.herokuapp.com/mt/skill",
-  baseURL3: "https://confused-jacket-seal.cyclic.app/mt/comment",
+  baseUrl1: "https://faithful-mittens-dove.cyclic.app/mt/work",
+  baseURL2: "https://incompetent-cause-production.up.railway.app/mt/skill",
+  baseURL3: "https://faithful-mittens-dove.cyclic.app/mt/comment",
   baseURL4: "https://metronportfolio.herokuapp.com/mt/contact"
 };
+
+
+
+

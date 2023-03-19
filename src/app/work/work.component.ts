@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, Observable, of, startWith } from 'rxjs';
 import { WorkState } from '../models/AppState';
 import { DataState } from '../models/DataState';
@@ -15,7 +15,6 @@ export class WorkComponent implements OnInit {
 
   constructor(private router: Router, private pService: PortfolioService) {
     this.a = this.router.url.split('/')[1].toUpperCase();
-    this.pService.updateMenu(this.menu);
   }
 
   a!: any;
@@ -47,10 +46,11 @@ export class WorkComponent implements OnInit {
 
   ngOnInit(): void {
     this.deviceWidth$ = window.innerWidth;
-    this.menu = false;
     this.pService.newMenu.subscribe(
       data => this.menu = data
     )
+
+
     this.workState$ = this.pService.work$.pipe(
       map((response) => {
         this.dataSubject.next(response);

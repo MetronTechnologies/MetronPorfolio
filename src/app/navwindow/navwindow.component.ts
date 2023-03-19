@@ -20,13 +20,15 @@ export class NavwindowComponent implements OnInit {
 
   constructor(private router: Router, private pService: PortfolioService) {
     this.a = this.router.url.split('/')[1].toUpperCase();
+    // this.pService.newMenu.subscribe(
+    //   data => this.menu = data
+    // )
   }
 
   newPlaces$: any;
 
   ngOnInit(): void {
     this.deviceWidth$ = window.innerWidth;
-    this.menu = false;
     this.pService.newMenu.subscribe(
       data => this.menu = data
     )
@@ -41,7 +43,8 @@ export class NavwindowComponent implements OnInit {
     this.deviceWidth$ = window.innerWidth;
   }
 
-  navigate(x: any) {
+  navigate(x: any) {  
+    this.pService.updateMenu(!this.menu)  
     let nav2 = x.toLowerCase();
     this.router.navigate([`/${nav2}`]);
   }

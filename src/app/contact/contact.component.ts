@@ -16,7 +16,6 @@ export class ContactComponent implements OnInit {
 
   constructor(private router: Router, private pService: PortfolioService, private fb: FormBuilder) {
     this.a = this.router.url.split('/')[1].toUpperCase();
-    this.pService.updateMenu(this.menu);
   }
 
   contactForm = this.fb.group(
@@ -70,11 +69,10 @@ export class ContactComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.deviceWidth$ = window.innerWidth;
-    this.menu = false;
     this.pService.newMenu.subscribe(
       data => this.menu = data
     )
+    this.deviceWidth$ = window.innerWidth;
   }
 
   burger() {

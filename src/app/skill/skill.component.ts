@@ -15,7 +15,7 @@ export class SkillComponent implements OnInit {
 
   constructor(private router: Router, private pService: PortfolioService) {
     this.a = this.router.url.split('/')[1].toUpperCase();
-    this.pService.updateMenu(this.menu);
+    // this.pService.updateMenu(this.menu);
   }
 
   a!: any;
@@ -58,10 +58,12 @@ export class SkillComponent implements OnInit {
 
   ngOnInit(): void {
     this.deviceWidth$ = window.innerWidth;
-    this.menu = false;
+    // this.menu = false;
     this.pService.newMenu.subscribe(
       data => this.menu = data
     );
+
+
     this.categories$ = this.pService.getCategories();
     this.skillState$ = this.pService.skill$.pipe(
       map(
